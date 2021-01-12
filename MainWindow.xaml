@@ -1,0 +1,121 @@
+﻿<Window x:Class="NanoPanel.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:NanoPanel"
+        mc:Ignorable="d"
+        Title="NanoPanel" ResizeMode="NoResize" SizeToContent="WidthAndHeight">
+    <StackPanel Orientation="Vertical">
+
+        <GroupBox Header="Analog pins" BorderBrush="#FF5187A8" Background="#FFF3F1D8" Width="248" HorizontalAlignment="Left">
+            <StackPanel Orientation="Vertical" Margin="0,0,0,0" Height="152" HorizontalAlignment="Left" VerticalAlignment="Top">
+                <StackPanel Orientation="Horizontal">
+                    <Label Content="A0&#xD;&#xA;" HorizontalAlignment="Left" Padding="0,0,5,0" VerticalContentAlignment="Bottom" VerticalAlignment="Top" Height="18"/>
+                    <TextBox x:Name="A0_number" HorizontalAlignment="Left" Text="0" TextWrapping="Wrap" VerticalAlignment="Top" Width="32" TextChanged="TextBox_TextChanged" UndoLimit="0" TextAlignment="Right" IsReadOnly="True"/>
+                    <ProgressBar x:Name="A0_bar" HorizontalAlignment="Left" Height="18" VerticalAlignment="Top" Width="183" Maximum="1023" LargeChange="10" SmallChange="1"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <Label Content="A1&#xA;" HorizontalAlignment="Left" Padding="0,0,5,0" VerticalAlignment="Top" Height="18"/>
+                    <TextBox x:Name="A1_number" HorizontalAlignment="Left" Text="0" TextWrapping="Wrap" VerticalAlignment="Top" Width="32" TextChanged="TextBox_TextChanged" TextAlignment="Right" IsReadOnly="True"/>
+                    <ProgressBar x:Name="A1_bar" HorizontalAlignment="Left" Height="18" VerticalAlignment="Top" Width="183" Maximum="1023" SmallChange="1" LargeChange="10"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <Label Content="A2&#xA;" HorizontalAlignment="Left" Padding="0,0,5,0" VerticalAlignment="Top" Height="18"/>
+                    <TextBox x:Name="A2_number" HorizontalAlignment="Left" Text="0" TextWrapping="Wrap" VerticalAlignment="Top" Width="32" TextChanged="TextBox_TextChanged" TextAlignment="Right" IsReadOnly="True"/>
+                    <ProgressBar x:Name="A2_bar" HorizontalAlignment="Left" Height="18" VerticalAlignment="Top" Width="183" Maximum="1023" SmallChange="1" LargeChange="10"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <Label Content="A3&#xA;" HorizontalAlignment="Left" Padding="0,0,5,0" VerticalAlignment="Top" Height="18"/>
+                    <TextBox x:Name="A3_number" HorizontalAlignment="Left" Text="0" TextWrapping="Wrap" VerticalAlignment="Top" Width="32" TextChanged="TextBox_TextChanged" TextAlignment="Right" IsReadOnly="True"/>
+                    <ProgressBar x:Name="A3_bar" HorizontalAlignment="Left" Height="18" VerticalAlignment="Top" Width="183" Maximum="1023" SmallChange="1" LargeChange="10"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <Label Content="A4&#xA;" HorizontalAlignment="Left" Padding="0,0,5,0" VerticalAlignment="Top" Height="18"/>
+                    <TextBox x:Name="A4_number" HorizontalAlignment="Left" Text="0" TextWrapping="Wrap" VerticalAlignment="Top" Width="32" TextChanged="TextBox_TextChanged" TextAlignment="Right" IsReadOnly="True"/>
+                    <ProgressBar x:Name="A4_bar" HorizontalAlignment="Left" Height="18" VerticalAlignment="Top" Width="183" Maximum="1023" SmallChange="1" LargeChange="10"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <Label Content="A5&#xA;" HorizontalAlignment="Left" Padding="0,0,5,0" VerticalAlignment="Top" Height="18"/>
+                    <TextBox x:Name="A5_number" HorizontalAlignment="Left" Text="0" TextWrapping="Wrap" VerticalAlignment="Top" Width="32" TextChanged="TextBox_TextChanged" TextAlignment="Right" IsReadOnly="True"/>
+                    <ProgressBar x:Name="A5_bar" HorizontalAlignment="Left" Height="18" VerticalAlignment="Top" Width="183" Maximum="1023" SmallChange="1" LargeChange="10"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <Label Content="A6&#xA;" HorizontalAlignment="Left" Padding="0,0,5,0" VerticalAlignment="Top" Height="18"/>
+                    <TextBox x:Name="A6_number" HorizontalAlignment="Left" Text="0" TextWrapping="Wrap" VerticalAlignment="Top" Width="32" TextChanged="TextBox_TextChanged" TextAlignment="Right" IsReadOnly="True"/>
+                    <ProgressBar x:Name="A6_bar" HorizontalAlignment="Left" Height="18" VerticalAlignment="Top" Width="183" Maximum="1023" SmallChange="1" LargeChange="10"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <Label Content="A7&#xA;" HorizontalAlignment="Left" Padding="0,0,5,0" VerticalAlignment="Top" Height="18"/>
+                    <TextBox x:Name="A7_number" HorizontalAlignment="Left" Text="0" TextWrapping="Wrap" VerticalAlignment="Top" Width="32" TextChanged="TextBox_TextChanged" TextAlignment="Right" IsReadOnly="True"/>
+                    <ProgressBar x:Name="A7_bar" HorizontalAlignment="Left" Height="18" VerticalAlignment="Top" Width="183" Maximum="1023" SmallChange="1" LargeChange="10"/>
+                </StackPanel>
+            </StackPanel>
+        </GroupBox>
+        <GroupBox Header="Digital pins" BorderBrush="#FF5187A8" Background="#FFC7E2E8" Width="94" HorizontalAlignment="Left">
+            <StackPanel Orientation="Vertical">
+                <StackPanel Orientation="Horizontal">
+                    <Label Content="D2&#xA;" HorizontalAlignment="Left" Padding="0,0,10,0" VerticalContentAlignment="Bottom" VerticalAlignment="Top" Height="18" Width="32" HorizontalContentAlignment="Right"/>
+                    <CheckBox x:Name="D2_output" ToolTip="Enable output." Margin="0,0,10,0" VerticalAlignment="Center"></CheckBox>
+                    <Ellipse x:Name="D2_status" Width="16" Height="16" Fill="Tomato" ToolTip="If output enabled click to flip state." Stroke="Black"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <Label Content="D3&#xA;" HorizontalAlignment="Left" Padding="0,0,10,0" VerticalContentAlignment="Bottom" VerticalAlignment="Top" Height="18" Width="32" HorizontalContentAlignment="Right"/>
+                    <CheckBox x:Name="D3_output" ToolTip="Enable output." Margin="0,0,10,0" VerticalAlignment="Center"></CheckBox>
+                    <Ellipse x:Name="D3_status" Width="16" Height="16" Fill="Tomato" ToolTip="If output enabled click to flip state." Stroke="Black"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <Label Content="D4&#xA;" HorizontalAlignment="Left" Padding="0,0,10,0" VerticalContentAlignment="Bottom" VerticalAlignment="Top" Height="18" Width="32" HorizontalContentAlignment="Right"/>
+                    <CheckBox x:Name="D4_output" ToolTip="Enable output." Margin="0,0,10,0" VerticalAlignment="Center"></CheckBox>
+                    <Ellipse x:Name="D4_status" Width="16" Height="16" Fill="Tomato" ToolTip="If output enabled click to flip state." Stroke="Black"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <Label Content="D5&#xA;" HorizontalAlignment="Left" Padding="0,0,10,0" VerticalContentAlignment="Bottom" VerticalAlignment="Top" Height="18" Width="32" HorizontalContentAlignment="Right"/>
+                    <CheckBox x:Name="D5_output" ToolTip="Enable output." Margin="0,0,10,0" VerticalAlignment="Center"></CheckBox>
+                    <Ellipse x:Name="D5_status" Width="16" Height="16" Fill="Tomato" ToolTip="If output enabled click to flip state." Stroke="Black"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <Label Content="D6&#xA;" HorizontalAlignment="Left" Padding="0,0,10,0" VerticalContentAlignment="Bottom" VerticalAlignment="Top" Height="18" Width="32" HorizontalContentAlignment="Right"/>
+                    <CheckBox x:Name="D6_output" ToolTip="Enable output." Margin="0,0,10,0" VerticalAlignment="Center"></CheckBox>
+                    <Ellipse x:Name="D6_status" Width="16" Height="16" Fill="Tomato" ToolTip="If output enabled click to flip state." Stroke="Black"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <Label Content="D7&#xA;" HorizontalAlignment="Left" Padding="0,0,10,0" VerticalContentAlignment="Bottom" VerticalAlignment="Top" Height="18" Width="32" HorizontalContentAlignment="Right"/>
+                    <CheckBox x:Name="D7_output" ToolTip="Enable output." Margin="0,0,10,0" VerticalAlignment="Center"></CheckBox>
+                    <Ellipse x:Name="D7_status" Width="16" Height="16" Fill="Tomato" ToolTip="If output enabled click to flip state." Stroke="Black"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <Label Content="D8&#xA;" HorizontalAlignment="Left" Padding="0,0,10,0" VerticalContentAlignment="Bottom" VerticalAlignment="Top" Height="18" Width="32" HorizontalContentAlignment="Right"/>
+                    <CheckBox x:Name="D8_output" ToolTip="Enable output." Margin="0,0,10,0" VerticalAlignment="Center"></CheckBox>
+                    <Ellipse x:Name="D8_status" Width="16" Height="16" Fill="Tomato" ToolTip="If output enabled click to flip state." Stroke="Black"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <Label Content="D9&#xA;" HorizontalAlignment="Left" Padding="0,0,10,0" VerticalContentAlignment="Bottom" VerticalAlignment="Top" Height="18" Width="32" HorizontalContentAlignment="Right"/>
+                    <CheckBox x:Name="D9_output" ToolTip="Enable output." Margin="0,0,10,0" VerticalAlignment="Center"></CheckBox>
+                    <Ellipse x:Name="D9_status" Width="16" Height="16" Fill="Tomato" ToolTip="If output enabled click to flip state." Stroke="Black"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <Label Content="D10&#xA;" HorizontalAlignment="Left" Padding="0,0,10,0" VerticalContentAlignment="Bottom" VerticalAlignment="Top" Height="18" Width="32" HorizontalContentAlignment="Right"/>
+                    <CheckBox x:Name="D10_output" ToolTip="Enable output." Margin="0,0,10,0" VerticalAlignment="Center"></CheckBox>
+                    <Ellipse x:Name="D10_status" Width="16" Height="16" Fill="Tomato" ToolTip="If output enabled click to flip state." Stroke="Black"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <Label Content="D11&#xA;" HorizontalAlignment="Left" Padding="0,0,10,0" VerticalContentAlignment="Bottom" VerticalAlignment="Top" Height="18" Width="32" HorizontalContentAlignment="Right"/>
+                    <CheckBox x:Name="D11_output" ToolTip="Enable output." Margin="0,0,10,0" VerticalAlignment="Center"></CheckBox>
+                    <Ellipse x:Name="D11_status" Width="16" Height="16" Fill="Tomato" ToolTip="If output enabled click to flip state." Stroke="Black"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <Label Content="D12&#xA;" HorizontalAlignment="Left" Padding="0,0,10,0" VerticalContentAlignment="Bottom" VerticalAlignment="Top" Height="18" Width="32" HorizontalContentAlignment="Right"/>
+                    <CheckBox x:Name="D12_output" ToolTip="Enable output." Margin="0,0,10,0" VerticalAlignment="Center"></CheckBox>
+                    <Ellipse x:Name="D12_status" Width="16" Height="16" Fill="Tomato" ToolTip="If output enabled click to flip state." Stroke="Black"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <Label Content="D13&#xA;" HorizontalAlignment="Left" Padding="0,0,10,0" VerticalContentAlignment="Bottom" VerticalAlignment="Top" Height="18" Width="32" HorizontalContentAlignment="Right"/>
+                    <CheckBox x:Name="D13_output" ToolTip="Enable output." Margin="0,0,10,0" VerticalAlignment="Center"></CheckBox>
+                    <Ellipse x:Name="D13_status" Width="16" Height="16" Fill="Tomato" ToolTip="If output enabled click to flip state." Stroke="Black"/>
+                </StackPanel>
+            </StackPanel>
+
+        </GroupBox>
+    </StackPanel>
+</Window>
