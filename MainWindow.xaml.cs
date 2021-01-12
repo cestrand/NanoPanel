@@ -34,6 +34,12 @@ namespace NanoPanel
             serial.Open();
             analogPinState.AnalogPinChanged += AnalogPinState_AnalogPinChanged;
             digitalPinState.DigitalPinChanged += DigitalPinState_DigitalPinChanged;
+
+            WebSocketService webSocketService = new()
+            {
+                AnalogPinState = analogPinState,
+                DigitalPinState = digitalPinState
+            };
         }
 
         private void setDigitalPinControl(Ellipse e, bool pinState)
