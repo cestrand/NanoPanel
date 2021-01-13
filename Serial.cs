@@ -12,13 +12,32 @@ namespace NanoPanel
     {
         static SerialPort _serialPort;
         static Regex regex_digital = new Regex(@"^2\s+D(?<pin>\d+)\s+(?<value>\d+)");
-
+        bool _isSerialOpen = false;
+        public bool IsSerialOpen
+        {
+            get => _isSerialOpen;
+            private set
+            {
+                bool prev = _isSerialOpen;
+                _isSerialOpen = value;
+                if(prev != value)
+                {
+                    OnSerialOpenChanged(new(value));
+                }
+            }
+        }
        
 
         bool _exitReadThread = false;
         Thread readThread;
 
+        public event EventHandler<SerialOpenChangedArgs> SerialOpenChanged;
         public event EventHandler<ReceivedLineArgs> ReceivedLine;
+
+        public virtual void OnSerialOpenChanged(SerialOpenChangedArgs e)
+        {
+            SerialOpenChanged?.Invoke(this, e);
+        }
         
 
         public Serial()
@@ -38,6 +57,7 @@ namespace NanoPanel
         {
             while (!_serialPort.IsOpen)
             {
+                IsSerialOpen = false;
                 try
                 {
                     _serialPort.Open();
@@ -52,6 +72,7 @@ namespace NanoPanel
                 }
                 Thread.Sleep(500);
             }
+            IsSerialOpen = true;
         }
 
         private void Read()
@@ -92,6 +113,15 @@ namespace NanoPanel
         public ReceivedLineArgs(String line) : base()
         {
             this.line = line;
+        }
+    }
+
+    class SerialOpenChangedArgs : EventArgs
+    {
+        public bool IsSerialOpen;
+        public SerialOpenChangedArgs(bool value)
+        {
+            IsSerialOpen = value;
         }
     }
 }

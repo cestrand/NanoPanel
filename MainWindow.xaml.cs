@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Text.RegularExpressions;
+using System.Drawing;
 
 namespace NanoPanel
 {
@@ -25,21 +26,47 @@ namespace NanoPanel
         Serial serial;
         AnalogPinState analogPinState;
         DigitalPinState digitalPinState;
+
+        ImageSource redIcon;
+        ImageSource greenIcon;
         public MainWindow()
         {
             InitializeComponent();
+            redIcon = Icon;
+            greenIcon = BitmapFrame.Create(new Uri("pack://application:,,,/icons/green.ico", UriKind.RelativeOrAbsolute));
+
+
             serial = new();
             analogPinState = new(serial);
             digitalPinState = new(serial);
             serial.Open();
             analogPinState.AnalogPinChanged += AnalogPinState_AnalogPinChanged;
             digitalPinState.DigitalPinChanged += DigitalPinState_DigitalPinChanged;
+            serial.SerialOpenChanged += Serial_SerialOpenChanged;
 
             WebSocketService webSocketService = new()
             {
                 AnalogPinState = analogPinState,
                 DigitalPinState = digitalPinState
             };
+        }
+
+        private void Serial_SerialOpenChanged(object sender, SerialOpenChangedArgs e)
+        {
+            Dispatcher.BeginInvoke(new Action(() =>
+            {
+                if (e.IsSerialOpen)
+                {
+                    this.Icon = greenIcon;
+                    TaskbarIcon.IconSource = greenIcon;
+                }
+                else
+                {
+                    this.Icon = redIcon;
+                    TaskbarIcon.IconSource = redIcon;
+                }
+            }));
+           
         }
 
         private void setDigitalPinControl(Ellipse e, bool pinState)
@@ -61,18 +88,18 @@ namespace NanoPanel
         {
             switch (e.pin)
             {
-                case  2: setDigitalPinControl( D2_status, e.next); break;
-                case  3: setDigitalPinControl( D3_status, e.next); break;
-                case  4: setDigitalPinControl( D4_status, e.next); break;
-                case  5: setDigitalPinControl( D5_status, e.next); break;
-                case  6: setDigitalPinControl( D6_status, e.next); break;
-                case  7: setDigitalPinControl( D7_status, e.next); break;
-                case  8: setDigitalPinControl( D8_status, e.next); break;
-                case  9: setDigitalPinControl( D9_status, e.next); break;
-                case 10: setDigitalPinControl(D10_status, e.next); break;
-                case 11: setDigitalPinControl(D11_status, e.next); break;
-                case 12: setDigitalPinControl(D12_status, e.next); break;
-                case 13: setDigitalPinControl(D13_status, e.next); break;
+                case 2: D2_status.State = e.next; break;
+                case 3: D3_status.State = e.next; break;
+                case 4: D4_status.State = e.next; break;
+                case 5: D5_status.State = e.next; break;
+                case 6: D6_status.State = e.next; break;
+                case 7: D7_status.State = e.next; break;
+                case 8: D8_status.State = e.next; break;
+                case 9: D9_status.State = e.next; break;
+                case 10: D10_status.State = e.next; break;
+                case 11: D11_status.State = e.next; break;
+                case 12: D12_status.State = e.next; break;
+                case 13: D13_status.State = e.next; break;
             }
         }
 
@@ -142,6 +169,14 @@ namespace NanoPanel
         private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
 
+        }
+
+        protected override void OnClosing(System.ComponentModel.CancelEventArgs e)
+        {
+            //clean up notifyicon (would otherwise stay open until application finishes)
+            TaskbarIcon.Dispose();
+
+            base.OnClosing(e);
         }
     }
 }

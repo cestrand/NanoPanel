@@ -4,9 +4,12 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:NanoPanel"
+        xmlns:tb="http://www.hardcodet.net/taskbar"
         mc:Ignorable="d"
-        Title="NanoPanel" ResizeMode="NoResize" SizeToContent="WidthAndHeight">
+        Title="NanoPanel" ResizeMode="NoResize" SizeToContent="WidthAndHeight"
+        Icon="icons/red.ico">
     <StackPanel Orientation="Vertical">
+        <tb:TaskbarIcon x:Name="TaskbarIcon" IconSource="icons/red.ico" ToolTipText="NanoPanel" />
 
         <GroupBox Header="Analog pins" BorderBrush="#FF5187A8" Background="#FFF3F1D8" Width="248" HorizontalAlignment="Left">
             <StackPanel Orientation="Vertical" Margin="0,0,0,0" Height="152" HorizontalAlignment="Left" VerticalAlignment="Top">
@@ -56,63 +59,63 @@
             <StackPanel Orientation="Vertical">
                 <StackPanel Orientation="Horizontal">
                     <Label Content="D2&#xA;" HorizontalAlignment="Left" Padding="0,0,10,0" VerticalContentAlignment="Bottom" VerticalAlignment="Top" Height="18" Width="32" HorizontalContentAlignment="Right"/>
-                    <CheckBox x:Name="D2_output" ToolTip="Enable output." Margin="0,0,10,0" VerticalAlignment="Center"></CheckBox>
-                    <Ellipse x:Name="D2_status" Width="16" Height="16" Fill="Tomato" ToolTip="If output enabled click to flip state." Stroke="Black"/>
+                    <CheckBox x:Name="D2_output" ToolTip="Enable output." Margin="0,0,10,0" VerticalAlignment="Center" Background="#FFE8E8B4"></CheckBox>
+                    <local:DigitalPinFlip x:Name="D2_status" Width="16" Height="16" ToolTip="If output enabled click to flip state."/>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal">
                     <Label Content="D3&#xA;" HorizontalAlignment="Left" Padding="0,0,10,0" VerticalContentAlignment="Bottom" VerticalAlignment="Top" Height="18" Width="32" HorizontalContentAlignment="Right"/>
-                    <CheckBox x:Name="D3_output" ToolTip="Enable output." Margin="0,0,10,0" VerticalAlignment="Center"></CheckBox>
-                    <Ellipse x:Name="D3_status" Width="16" Height="16" Fill="Tomato" ToolTip="If output enabled click to flip state." Stroke="Black"/>
+                    <CheckBox x:Name="D3_output" ToolTip="Enable output." Margin="0,0,10,0" VerticalAlignment="Center" Background="#FFE8E8B4"></CheckBox>
+                    <local:DigitalPinFlip x:Name="D3_status" Width="16" Height="16" ToolTip="If output enabled click to flip state."/>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal">
                     <Label Content="D4&#xA;" HorizontalAlignment="Left" Padding="0,0,10,0" VerticalContentAlignment="Bottom" VerticalAlignment="Top" Height="18" Width="32" HorizontalContentAlignment="Right"/>
-                    <CheckBox x:Name="D4_output" ToolTip="Enable output." Margin="0,0,10,0" VerticalAlignment="Center"></CheckBox>
-                    <Ellipse x:Name="D4_status" Width="16" Height="16" Fill="Tomato" ToolTip="If output enabled click to flip state." Stroke="Black"/>
+                    <CheckBox x:Name="D4_output" ToolTip="Enable output." Margin="0,0,10,0" VerticalAlignment="Center" Background="#FFE8E8B4"></CheckBox>
+                    <local:DigitalPinFlip x:Name="D4_status" Width="16" Height="16" ToolTip="If output enabled click to flip state."/>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal">
                     <Label Content="D5&#xA;" HorizontalAlignment="Left" Padding="0,0,10,0" VerticalContentAlignment="Bottom" VerticalAlignment="Top" Height="18" Width="32" HorizontalContentAlignment="Right"/>
-                    <CheckBox x:Name="D5_output" ToolTip="Enable output." Margin="0,0,10,0" VerticalAlignment="Center"></CheckBox>
-                    <Ellipse x:Name="D5_status" Width="16" Height="16" Fill="Tomato" ToolTip="If output enabled click to flip state." Stroke="Black"/>
+                    <CheckBox x:Name="D5_output" ToolTip="Enable output." Margin="0,0,10,0" VerticalAlignment="Center" Background="#FFE8E8B4"></CheckBox>
+                    <local:DigitalPinFlip x:Name="D5_status" Width="16" Height="16" ToolTip="If output enabled click to flip state."/>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal">
                     <Label Content="D6&#xA;" HorizontalAlignment="Left" Padding="0,0,10,0" VerticalContentAlignment="Bottom" VerticalAlignment="Top" Height="18" Width="32" HorizontalContentAlignment="Right"/>
-                    <CheckBox x:Name="D6_output" ToolTip="Enable output." Margin="0,0,10,0" VerticalAlignment="Center"></CheckBox>
-                    <Ellipse x:Name="D6_status" Width="16" Height="16" Fill="Tomato" ToolTip="If output enabled click to flip state." Stroke="Black"/>
+                    <CheckBox x:Name="D6_output" ToolTip="Enable output." Margin="0,0,10,0" VerticalAlignment="Center" Background="#FFE8E8B4"></CheckBox>
+                    <local:DigitalPinFlip x:Name="D6_status" Width="16" Height="16" ToolTip="If output enabled click to flip state."/>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal">
                     <Label Content="D7&#xA;" HorizontalAlignment="Left" Padding="0,0,10,0" VerticalContentAlignment="Bottom" VerticalAlignment="Top" Height="18" Width="32" HorizontalContentAlignment="Right"/>
-                    <CheckBox x:Name="D7_output" ToolTip="Enable output." Margin="0,0,10,0" VerticalAlignment="Center"></CheckBox>
-                    <Ellipse x:Name="D7_status" Width="16" Height="16" Fill="Tomato" ToolTip="If output enabled click to flip state." Stroke="Black"/>
+                    <CheckBox x:Name="D7_output" ToolTip="Enable output." Margin="0,0,10,0" VerticalAlignment="Center" Background="#FFE8E8B4"></CheckBox>
+                    <local:DigitalPinFlip x:Name="D7_status" Width="16" Height="16" ToolTip="If output enabled click to flip state."/>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal">
                     <Label Content="D8&#xA;" HorizontalAlignment="Left" Padding="0,0,10,0" VerticalContentAlignment="Bottom" VerticalAlignment="Top" Height="18" Width="32" HorizontalContentAlignment="Right"/>
-                    <CheckBox x:Name="D8_output" ToolTip="Enable output." Margin="0,0,10,0" VerticalAlignment="Center"></CheckBox>
-                    <Ellipse x:Name="D8_status" Width="16" Height="16" Fill="Tomato" ToolTip="If output enabled click to flip state." Stroke="Black"/>
+                    <CheckBox x:Name="D8_output" ToolTip="Enable output." Margin="0,0,10,0" VerticalAlignment="Center" Background="#FFE8E8B4"></CheckBox>
+                    <local:DigitalPinFlip x:Name="D8_status" Width="16" Height="16" ToolTip="If output enabled click to flip state."/>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal">
                     <Label Content="D9&#xA;" HorizontalAlignment="Left" Padding="0,0,10,0" VerticalContentAlignment="Bottom" VerticalAlignment="Top" Height="18" Width="32" HorizontalContentAlignment="Right"/>
-                    <CheckBox x:Name="D9_output" ToolTip="Enable output." Margin="0,0,10,0" VerticalAlignment="Center"></CheckBox>
-                    <Ellipse x:Name="D9_status" Width="16" Height="16" Fill="Tomato" ToolTip="If output enabled click to flip state." Stroke="Black"/>
+                    <CheckBox x:Name="D9_output" ToolTip="Enable output." Margin="0,0,10,0" VerticalAlignment="Center" Background="#FFE8E8B4"></CheckBox>
+                    <local:DigitalPinFlip x:Name="D9_status" Width="16" Height="16" ToolTip="If output enabled click to flip state."/>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal">
                     <Label Content="D10&#xA;" HorizontalAlignment="Left" Padding="0,0,10,0" VerticalContentAlignment="Bottom" VerticalAlignment="Top" Height="18" Width="32" HorizontalContentAlignment="Right"/>
-                    <CheckBox x:Name="D10_output" ToolTip="Enable output." Margin="0,0,10,0" VerticalAlignment="Center"></CheckBox>
-                    <Ellipse x:Name="D10_status" Width="16" Height="16" Fill="Tomato" ToolTip="If output enabled click to flip state." Stroke="Black"/>
+                    <CheckBox x:Name="D10_output" ToolTip="Enable output." Margin="0,0,10,0" VerticalAlignment="Center" Background="#FFE8E8B4"></CheckBox>
+                    <local:DigitalPinFlip x:Name="D10_status" Width="16" Height="16" ToolTip="If output enabled click to flip state."/>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal">
                     <Label Content="D11&#xA;" HorizontalAlignment="Left" Padding="0,0,10,0" VerticalContentAlignment="Bottom" VerticalAlignment="Top" Height="18" Width="32" HorizontalContentAlignment="Right"/>
-                    <CheckBox x:Name="D11_output" ToolTip="Enable output." Margin="0,0,10,0" VerticalAlignment="Center"></CheckBox>
-                    <Ellipse x:Name="D11_status" Width="16" Height="16" Fill="Tomato" ToolTip="If output enabled click to flip state." Stroke="Black"/>
+                    <CheckBox x:Name="D11_output" ToolTip="Enable output." Margin="0,0,10,0" VerticalAlignment="Center" Background="#FFE8E8B4"></CheckBox>
+                    <local:DigitalPinFlip x:Name="D11_status" Width="16" Height="16" ToolTip="If output enabled click to flip state."/>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal">
                     <Label Content="D12&#xA;" HorizontalAlignment="Left" Padding="0,0,10,0" VerticalContentAlignment="Bottom" VerticalAlignment="Top" Height="18" Width="32" HorizontalContentAlignment="Right"/>
-                    <CheckBox x:Name="D12_output" ToolTip="Enable output." Margin="0,0,10,0" VerticalAlignment="Center"></CheckBox>
-                    <Ellipse x:Name="D12_status" Width="16" Height="16" Fill="Tomato" ToolTip="If output enabled click to flip state." Stroke="Black"/>
+                    <CheckBox x:Name="D12_output" ToolTip="Enable output." Margin="0,0,10,0" VerticalAlignment="Center" Background="#FFE8E8B4"></CheckBox>
+                    <local:DigitalPinFlip x:Name="D12_status" Width="16" Height="16" ToolTip="If output enabled click to flip state."/>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal">
                     <Label Content="D13&#xA;" HorizontalAlignment="Left" Padding="0,0,10,0" VerticalContentAlignment="Bottom" VerticalAlignment="Top" Height="18" Width="32" HorizontalContentAlignment="Right"/>
-                    <CheckBox x:Name="D13_output" ToolTip="Enable output." Margin="0,0,10,0" VerticalAlignment="Center"></CheckBox>
-                    <Ellipse x:Name="D13_status" Width="16" Height="16" Fill="Tomato" ToolTip="If output enabled click to flip state." Stroke="Black"/>
+                    <CheckBox x:Name="D13_output" ToolTip="Enable output." Margin="0,0,10,0" VerticalAlignment="Center" Background="#FFE8E8B4"></CheckBox>
+                    <local:DigitalPinFlip x:Name="D13_status" Width="16" Height="16" ToolTip="If output enabled click to flip state."/>
                 </StackPanel>
             </StackPanel>
 
